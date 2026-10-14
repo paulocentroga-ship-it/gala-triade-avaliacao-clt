@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gala Tríade 2026 — Avaliação CLTs</title>
+<style>
+:root{--p:#1e6f5c;--p2:#14523f;--ink:#1c2321;--mut:#5b6b66;--bg:#f2f6f4;--ok:#0a7a4b;--er:#b3261e;--line:#d9e4e0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);padding:12px 0 90px}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px}
+.hero{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border-radius:14px;padding:18px 16px;margin-bottom:14px}
+.hero h1{font-size:1.25rem;line-height:1.25}
+.hero p{opacity:.92;font-size:.85rem;margin-top:6px}
+.card{background:#fff;border-radius:14px;padding:16px 14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.blk{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.badge{width:34px;height:34px;border-radius:9px;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex:none}
+.blk h2{font-size:1rem}
+.blk p{font-size:.75rem;color:var(--mut)}
+.q{border-top:1px solid var(--line);padding:12px 0}
+.ql{margin-bottom:7px}
+.ql b{font-size:.92rem;display:block}
+.hint{font-size:.75rem;color:var(--mut);font-weight:400}
+.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.sc{border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:9px 0;font-size:.95rem;font-weight:600;color:var(--mut);cursor:pointer;transition:.12s}
+.sc.on{background:var(--p);border-color:var(--p);color:#fff}
+.sc.on.na{background:#6b7772;border-color:#6b7772}
+textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:9px;font:inherit;font-size:.9rem;resize:vertical;background:#fbfdfc}
+textarea:focus{outline:none;border-color:var(--p)}
+label{display:block;font-size:.92rem;font-weight:600;margin-bottom:6px}
+select,input[type=text]{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px;font:inherit;font-size:.95rem;background:#fff}
+select:disabled{background:#eef4f2;color:var(--ink);font-weight:600}
+select:focus,input:focus{outline:none;border-color:var(--p)}
+.err{display:none;background:#fdecea;color:var(--er);border-radius:8px;padding:10px 12px;font-size:.85rem;margin-bottom:10px}
+.bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+.bar .wrap{display:flex;gap:10px;align-items:center}
+.btn{flex:1;background:var(--p);color:#fff;border:0;border-radius:10px;padding:14px;font-size:1rem;font-weight:700;cursor:pointer}
+.btn:disabled{opacity:.55}
+.foot{font-size:.72rem;color:var(--ok);text-align:center;margin-top:8px}
+.okbox{background:#fff;border-radius:14px;padding:26px 18px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.okbox h2{color:var(--ok);margin-bottom:8px}
+.okbox p{font-size:.9rem;color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<h1>🌟 Gala Tríade 2026</h1>
+<p>Avaliação interna — Funcionários CLTs · Período: 01/01/2026 a 30/11/2026</p>
+<p style="margin-top:4px">Respostas anônimas. Sua identidade não é registrada.</p>
+</div>
+<div id="ok" class="okbox" style="display:none">
+<h2>✅ Avaliação enviada!</h2>
+<p>Obrigado por participar. Sua resposta foi registrada de forma anônima e será consolidada com as demais.</p>
+</div>
+<form id="f" novalidate>
+<div class="card">
+<label for="avaliado">Quem você está avaliando?</label>
+<select id="avaliado" name="avaliado"><option value="">Selecione o nome…</option></select>
+<div class="foot" id="lockmsg" style="display:none">🔒 Avaliação direcionada — o nome já foi definido no link.</div>
+</div>
+<div class="card">
+<div class="blk"><div class="badge">A</div><div><h2>Qualidade Técnica e Entrega</h2><p>peso 40% · como a pessoa executa o trabalho</p></div></div>
+<div class="q"><div class="ql"><b>A1 · Rigor e Conformidade Técnica</b><span class="hint">faz certo o que é da função, dentro das normas</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="a1" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="a1" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="a1" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="a1" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="a1" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="a1" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>A2 · Cumprimento de Prazos</b><span class="hint">entrega no combinado; avisa com antecedência quando não consegue</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="a2" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="a2" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="a2" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="a2" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="a2" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="a2" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>A3 · Consistência da Documentação</b><span class="hint">registros, relatórios e evoluções completos e em dia</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="a3" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="a3" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="a3" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="a3" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="a3" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="a3" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>A4 · Precisão e Acurácia Operacional</b><span class="hint">dados, valores e informações sem erro</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="a4" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="a4" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="a4" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="a4" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="a4" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="a4" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>Observações do bloco A</b> <span class="hint">(opcional)</span></div>
+<textarea name="obsA" rows="2" maxlength="600" placeholder="Fatos concretos, não opiniões — cite situação, data e resultado."></textarea></div>
+</div>
+<div class="card">
+<div class="blk"><div class="badge">B</div><div><h2>Colaboração e Interdisciplinaridade</h2><p>peso 30% · como a pessoa trabalha com o time</p></div></div>
+<div class="q"><div class="ql"><b>B1 · Cooperação Multidisciplinar</b><span class="hint">cobre o colega, ajuda na correria, trabalha em equipe</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="b1" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="b1" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="b1" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="b1" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="b1" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="b1" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>B2 · Comunicação Intersetorial</b><span class="hint">fala com os outros polos/setores sem ruído</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="b2" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="b2" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="b2" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="b2" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="b2" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="b2" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>B3 · Participação Técnica</b><span class="hint">contribui em reuniões e nas decisões técnicas</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="b3" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="b3" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="b3" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="b3" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="b3" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="b3" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>B4 · Clima Organizacional e Suporte Mútuo</b><span class="hint">trata bem, incentiva, não fofoca</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="b4" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="b4" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="b4" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="b4" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="b4" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="b4" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>Observações do bloco B</b> <span class="hint">(opcional)</span></div>
+<textarea name="obsB" rows="2" maxlength="600" placeholder="Fatos concretos, não opiniões — cite situação, data e resultado."></textarea></div>
+</div>
+<div class="card">
+<div class="blk"><div class="badge">C</div><div><h2>Acolhimento e Relacionamento</h2><p>peso 20% · como a pessoa lida com pacientes e colegas</p></div></div>
+<div class="q"><div class="ql"><b>C1 · Conduta Ética e Sigilo</b><span class="hint">não comenta caso de paciente fora do serviço</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="c1" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="c1" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="c1" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="c1" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="c1" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="c1" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>C2 · Vínculo e Acolhimento</b><span class="hint">acolhe paciente/família, mantém o vínculo</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="c2" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="c2" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="c2" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="c2" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="c2" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="c2" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>C3 · Empatia e Manejo de Crises</b><span class="hint">mantém a calma e cuida nos momentos difíceis</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="c3" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="c3" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="c3" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="c3" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="c3" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="c3" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>C4 · Clareza e Transparência na Comunicação</b><span class="hint">fala claro, sem enrolação, informa o que precisa</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="c4" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="c4" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="c4" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="c4" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="c4" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="c4" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>Observações do bloco C</b> <span class="hint">(opcional)</span></div>
+<textarea name="obsC" rows="2" maxlength="600" placeholder="Fatos concretos, não opiniões — cite situação, data e resultado."></textarea></div>
+</div>
+<div class="card">
+<div class="blk"><div class="badge">D</div><div><h2>Comprometimento e Conduta Funcional</h2><p>peso 10% · disciplina e postura</p></div></div>
+<div class="q"><div class="ql"><b>D1 · Assiduidade e Pontualidade</b><span class="hint">cumpre escala e horário; avisa faltas com antecedência</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="d1" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="d1" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="d1" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="d1" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="d1" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="d1" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>D2 · Observância aos Procedimentos Internos</b><span class="hint">segue rotinas, escalas e normas da clínica</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="d2" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="d2" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="d2" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="d2" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="d2" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="d2" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>D3 · Proatividade e Responsabilidade</b><span class="hint">vê o que precisa ser feito e faz sem precisar mandar</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="d3" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="d3" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="d3" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="d3" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="d3" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="d3" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>D4 · Estabilidade e Profissionalismo</b><span class="hint">postura madura e constante, inclusive em dias difíceis</span></div>
+<div class="scale" role="radiogroup"><button type="button" class="sc" data-n="d4" data-v="1" onclick="pick(this)">1</button><button type="button" class="sc" data-n="d4" data-v="2" onclick="pick(this)">2</button><button type="button" class="sc" data-n="d4" data-v="3" onclick="pick(this)">3</button><button type="button" class="sc" data-n="d4" data-v="4" onclick="pick(this)">4</button><button type="button" class="sc" data-n="d4" data-v="5" onclick="pick(this)">5</button><button type="button" class="sc" data-n="d4" data-v="NA" onclick="pick(this)">NA</button></div></div>
+<div class="q"><div class="ql"><b>Observações do bloco D</b> <span class="hint">(opcional)</span></div>
+<textarea name="obsD" rows="2" maxlength="600" placeholder="Fatos concretos, não opiniões — cite situação, data e resultado."></textarea></div>
+</div>
+<div class="card">
+<label for="parecer">Parecer geral <span class="hint">(opcional)</span></label>
+<textarea id="parecer" name="parecer" rows="3" maxlength="800" placeholder="Em uma frase: o ponto forte e o ponto a desenvolver desta pessoa."></textarea>
+</div>
+<div class="err" id="err"></div>
+<div class="bar"><div class="wrap">
+<button type="submit" id="btn" class="btn">Enviar avaliação</button>
+</div>
+<div class="foot">🔒 Anônimo — não coletamos nome, e-mail ou IP. Escala: 1 = insuficiente · 5 = excelente · NA = não se aplica (peso redistribuído).</div>
+</div>
+</form>
+</div>
+<script>
+var WEBHOOK="https://maestro.adapta.one/webhooks/generic/e4aab2a77a74c1258ffaf4bc307c48d3cb2a73c30a0fb3a052388e5bcdda4e53";
+var SECRET="f9c7b00e04a85fdb665d495dfc6c3ec2b014db5ed382792d947d07805e6569f8";
+var CAMPOS=["a1","a2","a3","a4","b1","b2","b3","b4","c1","c2","c3","c4","d1","d2","d3","d4"];
+function pick(el){
+  var n=el.getAttribute("data-n");
+  document.querySelectorAll('.sc[data-n="'+n+'"]').forEach(function(b){b.classList.remove("on","na")});
+  el.classList.add("on");
+  if(el.getAttribute("data-v")==="NA")el.classList.add("na");
+}
+(function(){
+  var sel=document.getElementById("avaliado");
+  if(window.LISTA&&window.LISTA.length){
+    window.LISTA.forEach(function(n){var o=document.createElement("option");o.value=n;o.textContent=n;sel.appendChild(o);});
+  }
+  var p=new URLSearchParams(location.search).get("avaliado");
+  if(p){
+    var o=document.createElement("option");o.value=p;o.textContent=p;sel.appendChild(o);
+    sel.value=p;sel.disabled=true;
+    document.getElementById("lockmsg").style.display="block";
+  }
+})();
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var err=document.getElementById("err");
+  var faltando=CAMPOS.filter(function(c){return !document.querySelector('.sc.on[data-n="'+c+'"]')});
+  var av=document.getElementById("avaliado").value;
+  if(!av||faltando.length){
+    err.style.display="block";
+    var msg=[];
+    if(!av)msg.push("selecione quem está sendo avaliado");
+    if(faltando.length)msg.push("critérios sem nota: "+faltando.join(", ").toUpperCase());
+    err.textContent="Falta preencher: "+msg.join(" · ")+".";
+    window.scrollTo({top:0,behavior:"smooth"});
+    return;
+  }
+  err.style.display="none";
+  var payload={avaliado:av};
+  CAMPOS.forEach(function(c){
+    var b=document.querySelector('.sc.on[data-n="'+c+'"]');
+    payload[c]=b.getAttribute("data-v");
+  });
+  ["obsA","obsB","obsC","obsD","parecer"].forEach(function(k){
+    var t=document.querySelector('[name="'+k+'"]');
+    payload[k]=t?t.value.trim():"";
+  });
+  var btn=document.getElementById("btn");
+  btn.disabled=true;btn.textContent="Enviando…";
+  fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json","X-Webhook-Secret":SECRET},body:JSON.stringify(payload)})
+  .then(function(r){
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    document.getElementById("f").style.display="none";
+    document.getElementById("ok").style.display="block";
+    window.scrollTo({top:0,behavior:"smooth"});
+  })
+  .catch(function(ex){
+    btn.disabled=false;btn.textContent="Enviar avaliação";
+    err.style.display="block";
+    err.textContent="Erro de conexão ("+ex.message+"). Verifique a internet e tente de novo — suas respostas continuam na tela.";
+  });
+});
+</script>
+</body>
+</html>
