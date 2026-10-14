@@ -124,8 +124,7 @@ select:focus,input:focus{outline:none;border-color:var(--p)}
 </form>
 </div>
 <script>
-var WEBHOOK="https://maestro.adapta.one/webhooks/generic/e4aab2a77a74c1258ffaf4bc307c48d3cb2a73c30a0fb3a052388e5bcdda4e53";
-var SECRET="f9c7b00e04a85fdb665d495dfc6c3ec2b014db5ed382792d947d07805e6569f8";
+var WEBHOOK="https://maestro.adapta.one/webhooks/generic/e4aab2a77a74c1258ffaf4bc307c48d3cb2a73c30a0fb3a052388e5bcdda4e53?secret=f9c7b00e04a85fdb665d495dfc6c3ec2b014db5ed382792d947d07805e6569f8";
 var CAMPOS=["a1","a2","a3","a4","b1","b2","b3","b4","c1","c2","c3","c4","d1","d2","d3","d4"];
 function pick(el){
   var n=el.getAttribute("data-n");
@@ -171,7 +170,7 @@ document.getElementById("f").addEventListener("submit",function(e){
   });
   var btn=document.getElementById("btn");
   btn.disabled=true;btn.textContent="Enviando…";
-  fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json","X-Webhook-Secret":SECRET},body:JSON.stringify(payload)})
+  fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
   .then(function(r){
     if(!r.ok)throw new Error("HTTP "+r.status);
     document.getElementById("f").style.display="none";
